@@ -30,6 +30,10 @@ const trippSchema=new mongoose.Schema({
         type:String,
         required:true
     },
+    creator:{
+        type: 'ObjectId',
+        ref: 'User'
+    },
     buddies :[{
         type: 'ObjectId',
         ref: 'User',

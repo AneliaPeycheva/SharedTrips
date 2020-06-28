@@ -119,5 +119,5 @@ module.exports = {
     verifyUser,
     checkAuthentication,
     guestAccess,
-    getUserStatus
+    getUserStatus    
 }

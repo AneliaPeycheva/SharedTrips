@@ -17,6 +17,7 @@ router.get('/', getUserStatus, (req, res) => {
     })
 })
 
+
 router.get('/sharedTripps', getUserStatus, async (req, res) => {
     const token=req.cookies['aid']
     const decodedObject=jwt.verify(token,config.privateKey)    
@@ -25,7 +26,7 @@ router.get('/sharedTripps', getUserStatus, async (req, res) => {
 
     res.render('sharedTripps', {
         isLoggedIn: req.isLoggedIn,
-        tripps,
+        tripps,        
         email:decodedObject.email       
     })
 })
@@ -35,5 +36,16 @@ router.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
+
+// router.get('*', getUserStatus, (req, res) => {
+//     const token=req.cookies['aid']
+//     const decodedObject=jwt.verify(token,config.privateKey)   
+
+//     res.render('404', {
+//         title: '404',
+//         isLoggedIn: req.isLoggedIn,
+//         email:decodedObject.email 
+//     })
+// })
 
 module.exports = router
